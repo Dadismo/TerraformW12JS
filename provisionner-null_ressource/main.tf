@@ -15,7 +15,7 @@ resource "null_resource" "name1" {
   connection {
     type        = "ssh"
     user        = "ec2-user"
-    private_key = file("week12kp.pem") # we put file() because the keypair is now downloaded locally as a file 
+    private_key = file("abcd.pem") # we put file() because the keypair is now downloaded locally as a file 
     host        = aws_instance.name.public_ip
   }
 
@@ -29,7 +29,7 @@ resource "null_resource" "name1" {
   }
 
   provisioner "file" {
-    source      = "week12kp.pem"
+    source      = "abcd.pem"
     destination = "/tmp/w.pem"
   }
 
